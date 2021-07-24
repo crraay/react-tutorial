@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 const StaticTextComponent = () => {
@@ -16,18 +15,39 @@ class SecondDynamicTextComponent extends React.Component {
   }
 }
 
+const ContainerComponent = (props) => {
+  if (!props.children) return null;
+
+  return <div style={{border: '3px solid red'}}>{props.children}</div>
+}
+
+const DefaultContainerComponent = (props) => {
+
+  return <div style={{border: '3px solid blue'}}>
+    {/*{props.children ? props.children : 'Default content'}*/}
+    {props.children || 'Default content'}
+  </div>
+}
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <StaticTextComponent></StaticTextComponent>
+        <StaticTextComponent/>
 
-        <DynamicTextComponent text="Dynamic text"></DynamicTextComponent>
-        <DynamicTextComponent></DynamicTextComponent>
+        <DefaultContainerComponent>
+          <DynamicTextComponent text="Dynamic text"/>
+          <DynamicTextComponent/>
+        </DefaultContainerComponent>
 
-        <SecondDynamicTextComponent text="More dynamic text"></SecondDynamicTextComponent>
-        <SecondDynamicTextComponent></SecondDynamicTextComponent>
+        <DefaultContainerComponent/>
+
+        <ContainerComponent>
+          <SecondDynamicTextComponent text="More dynamic text"/>
+          <SecondDynamicTextComponent/>
+        </ContainerComponent>
+
+        <ContainerComponent/>
       </header>
     </div>
   );
