@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import { ClickCounter } from './components/ClickCounter';
+import { SimpleList } from "./components/SimpleList";
 
 const StaticTextComponent = () => {
   return <div>Static text</div>
@@ -48,6 +50,10 @@ function App() {
         </ContainerComponent>
 
         <ContainerComponent/>
+
+        <ClickCounter/>
+
+        <SimpleList numbers={[3,4,5]} />
       </header>
     </div>
   );
