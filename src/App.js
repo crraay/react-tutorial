@@ -31,32 +31,42 @@ const DefaultContainerComponent = (props) => {
   </div>
 }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <StaticTextComponent/>
+class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-        <DefaultContainerComponent>
-          <DynamicTextComponent text="Dynamic text"/>
-          <DynamicTextComponent/>
-        </DefaultContainerComponent>
+    this.state = {
+      items: [6, 7, 8]
+    }
+  }
 
-        <DefaultContainerComponent/>
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <StaticTextComponent/>
 
-        <ContainerComponent>
-          <SecondDynamicTextComponent text="More dynamic text"/>
-          <SecondDynamicTextComponent/>
-        </ContainerComponent>
+          <DefaultContainerComponent>
+            <DynamicTextComponent text="Dynamic text"/>
+            <DynamicTextComponent/>
+          </DefaultContainerComponent>
 
-        <ContainerComponent/>
+          <DefaultContainerComponent/>
 
-        <ClickCounter/>
+          <ContainerComponent>
+            <SecondDynamicTextComponent text="More dynamic text"/>
+            <SecondDynamicTextComponent/>
+          </ContainerComponent>
 
-        <SimpleList numbers={[3,4,5]} />
-      </header>
-    </div>
-  );
+          <ContainerComponent/>
+
+          <ClickCounter/>
+
+          <SimpleList items={this.state.items}/>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -4,7 +4,7 @@ const SimpleListItem = ({ val }) => {
   return <li>item {val}</li>
 }
 
-export const SimpleList = ({ numbers }) => {
+export const SimpleList = ({ items }) => {
   //1
   // const items = numbers.map(i => <li key={i.toString()}>item {i}</li>)
 
@@ -15,7 +15,7 @@ export const SimpleList = ({ numbers }) => {
   //3
   return (
     <ul>
-      {numbers.map(i => <SimpleListItem key={i} val={i}/>)}
+      {items.map(i => <SimpleListItem key={i} val={i}/>)}
     </ul>
   );
 }

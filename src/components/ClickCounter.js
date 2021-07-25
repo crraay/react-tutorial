@@ -32,7 +32,11 @@ export class ClickCounter extends React.Component {
     console.log('event', e);
     console.log('this', this);
 
-    this.setState({count: this.state.count + 1});
+    // 1
+    // this.setState({count: this.state.count + 1});
+
+    // 2
+    this.setState((state, props) => ({ count: state.count + 5 }));
   }
 
   handleClick5 = (test) => (e) => {
