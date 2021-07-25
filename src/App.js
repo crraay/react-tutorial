@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import { ClickCounter } from './components/ClickCounter';
 import { SimpleList } from "./components/SimpleList";
+import { Clock } from "./components/Clock";
+import { Lifecycle } from "./components/Lifecycle";
 
 const StaticTextComponent = () => {
   return <div>Static text</div>
@@ -44,6 +46,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
+          {/* simple components */}
           <StaticTextComponent/>
 
           <DefaultContainerComponent>
@@ -60,9 +63,13 @@ class App extends React.Component {
 
           <ContainerComponent/>
 
+          {/* work with state */}
           <ClickCounter/>
-
           <SimpleList items={this.state.items}/>
+
+          {/* work with lifecycle */}
+          <Clock/>
+          <Lifecycle/>
         </header>
       </div>
     );
