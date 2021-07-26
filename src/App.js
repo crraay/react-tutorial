@@ -5,6 +5,9 @@ import { SimpleList } from "./components/SimpleList";
 import { Clock } from "./components/Clock";
 import { Lifecycle } from "./components/Lifecycle";
 import { Title } from "./components/Title";
+import { NameForm } from "./components/NameForm";
+import {UncontrolledForm} from "./components/UncontrolledForm";
+import {Converter} from "./components/Converter";
 
 const StaticTextComponent = () => {
   return <div>Static text</div>
@@ -64,16 +67,25 @@ class App extends React.Component {
 
           <ContainerComponent/>
 
-          {/* work with state */}
-          <ClickCounter/>
-          <SimpleList items={this.state.items}/>
+          <DefaultContainerComponent>
+            {/* work with state */}
+            <ClickCounter/>
+            <SimpleList items={this.state.items}/>
 
-          {/* work with lifecycle */}
-          <Clock/>
-          <Lifecycle/>
+            {/* work with lifecycle */}
+            <Clock/>
+            <Lifecycle/>
 
-          {/* Redux */}
-          <Title/>
+            {/* Redux */}
+            <Title/>
+          </DefaultContainerComponent>
+
+          {/* Forms */}
+          <ContainerComponent>
+            <NameForm/>
+            <UncontrolledForm/>
+          </ContainerComponent>
+          <Converter/>
         </header>
       </div>
     );
