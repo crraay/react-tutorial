@@ -4,6 +4,7 @@ import { ClickCounter } from './components/ClickCounter';
 import { SimpleList } from "./components/SimpleList";
 import { Clock } from "./components/Clock";
 import { Lifecycle } from "./components/Lifecycle";
+import { Title } from "./components/Title";
 
 const StaticTextComponent = () => {
   return <div>Static text</div>
@@ -70,6 +71,9 @@ class App extends React.Component {
           {/* work with lifecycle */}
           <Clock/>
           <Lifecycle/>
+
+          {/* Redux */}
+          <Title/>
         </header>
       </div>
     );
