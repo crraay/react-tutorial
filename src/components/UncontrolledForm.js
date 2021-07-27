@@ -9,6 +9,7 @@ export class UncontrolledForm extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     console.log(`submitted form value: ${this.input.current.value}`);
+    alert(`submitted form value: ${this.input.current.value}`);
   }
 
   render() {

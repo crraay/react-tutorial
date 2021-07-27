@@ -10,6 +10,8 @@ import {UncontrolledForm} from "./components/UncontrolledForm";
 import {Converter} from "./components/Converter";
 import {Container, DefaultContainer} from "./components/Container/Container";
 import {TodoList} from "./components/TodoList";
+import {Switch, Route} from "react-router-dom";
+import {Menu} from "./components/Menu";
 
 const StaticTextComponent = () => {
   return <div>Static text</div>
@@ -25,6 +27,63 @@ class SecondDynamicTextComponent extends React.Component {
   }
 }
 
+const BasicExamplesPage = () => {
+  return (
+    <div>
+      <StaticTextComponent/>
+
+      <DefaultContainer>
+        <DynamicTextComponent text="Dynamic text"/>
+        <DynamicTextComponent/>
+      </DefaultContainer>
+
+      <DefaultContainer/>
+
+      <Container>
+        <SecondDynamicTextComponent text="More dynamic text"/>
+        <SecondDynamicTextComponent/>
+      </Container>
+
+      <Container/>
+    </div>
+  )
+}
+
+const StateExamplesPage = ({items}) => {
+  return (
+    <DefaultContainer>
+      {/* work with state */}
+      <ClickCounter/>
+      <SimpleList items={items}/>
+
+      {/* work with lifecycle */}
+      <Clock/>
+      <Lifecycle/>
+
+      {/* Redux */}
+      <Title/>
+    </DefaultContainer>
+  )
+}
+
+const FormExamplesPage = () => {
+  return (
+    <div>
+      <Container title="Name form">
+        <NameForm/>
+      </Container>
+
+      <DefaultContainer>
+        <UncontrolledForm/>
+      </DefaultContainer>
+
+      <Container title="Temperature converter">
+        <Converter/>
+      </Container>
+    </div>
+  )
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -38,49 +97,13 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          {/* simple components */}
-          <StaticTextComponent/>
-
-          <DefaultContainer>
-            <DynamicTextComponent text="Dynamic text"/>
-            <DynamicTextComponent/>
-          </DefaultContainer>
-
-          <DefaultContainer/>
-
-          <Container>
-            <SecondDynamicTextComponent text="More dynamic text"/>
-            <SecondDynamicTextComponent/>
-          </Container>
-
-          <Container/>
-
-          <DefaultContainer>
-            {/* work with state */}
-            <ClickCounter/>
-            <SimpleList items={this.state.items}/>
-
-            {/* work with lifecycle */}
-            <Clock/>
-            <Lifecycle/>
-
-            {/* Redux */}
-            <Title/>
-          </DefaultContainer>
-
-          {/* Forms */}
-          <Container title="Name form">
-            <NameForm/>
-          </Container>
-
-          <DefaultContainer>
-            <UncontrolledForm/>
-            <Converter/>
-          </DefaultContainer>
-
-          <Container>
-            <TodoList />
-          </Container>
+          <Menu />
+          <Switch>
+            <Route exact path="/basic" component={BasicExamplesPage} />
+            <Route exact path="/state" render={() => <StateExamplesPage items={this.state.items} />} />
+            <Route exact path="/forms" component={FormExamplesPage} />
+            <Route exact path="/todo" component={TodoList} />
+          </Switch>
         </header>
       </div>
     );
