@@ -8,6 +8,7 @@ import { Title } from "./components/Title";
 import { NameForm } from "./components/NameForm";
 import {UncontrolledForm} from "./components/UncontrolledForm";
 import {Converter} from "./components/Converter";
+import {Container, DefaultContainer} from "./components/Container/Container";
 
 const StaticTextComponent = () => {
   return <div>Static text</div>
@@ -21,20 +22,6 @@ class SecondDynamicTextComponent extends React.Component {
   render() {
     return <div>{this.props.text || 'Default text'}</div>
   }
-}
-
-const ContainerComponent = (props) => {
-  if (!props.children) return null;
-
-  return <div style={{border: '3px solid red'}}>{props.children}</div>
-}
-
-const DefaultContainerComponent = (props) => {
-
-  return <div style={{border: '3px solid blue'}}>
-    {/*{props.children ? props.children : 'Default content'}*/}
-    {props.children || 'Default content'}
-  </div>
 }
 
 class App extends React.Component {
@@ -53,21 +40,21 @@ class App extends React.Component {
           {/* simple components */}
           <StaticTextComponent/>
 
-          <DefaultContainerComponent>
+          <DefaultContainer>
             <DynamicTextComponent text="Dynamic text"/>
             <DynamicTextComponent/>
-          </DefaultContainerComponent>
+          </DefaultContainer>
 
-          <DefaultContainerComponent/>
+          <DefaultContainer/>
 
-          <ContainerComponent>
+          <Container>
             <SecondDynamicTextComponent text="More dynamic text"/>
             <SecondDynamicTextComponent/>
-          </ContainerComponent>
+          </Container>
 
-          <ContainerComponent/>
+          <Container/>
 
-          <DefaultContainerComponent>
+          <DefaultContainer>
             {/* work with state */}
             <ClickCounter/>
             <SimpleList items={this.state.items}/>
@@ -78,14 +65,17 @@ class App extends React.Component {
 
             {/* Redux */}
             <Title/>
-          </DefaultContainerComponent>
+          </DefaultContainer>
 
           {/* Forms */}
-          <ContainerComponent>
+          <Container title="Name form">
             <NameForm/>
+          </Container>
+
+          <DefaultContainer>
             <UncontrolledForm/>
-          </ContainerComponent>
-          <Converter/>
+            <Converter/>
+          </DefaultContainer>
         </header>
       </div>
     );
