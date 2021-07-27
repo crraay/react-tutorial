@@ -9,6 +9,7 @@ import { NameForm } from "./components/NameForm";
 import {UncontrolledForm} from "./components/UncontrolledForm";
 import {Converter} from "./components/Converter";
 import {Container, DefaultContainer} from "./components/Container/Container";
+import {TodoList} from "./components/TodoList";
 
 const StaticTextComponent = () => {
   return <div>Static text</div>
@@ -76,6 +77,10 @@ class App extends React.Component {
             <UncontrolledForm/>
             <Converter/>
           </DefaultContainer>
+
+          <Container>
+            <TodoList />
+          </Container>
         </header>
       </div>
     );
