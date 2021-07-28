@@ -24,6 +24,7 @@ export class SecondDynamicTextComponent extends React.Component {
 }
 
 export const BasicExamplesPage = () => {
+  // throw Error("test");
   return (
     <div>
       <StaticTextComponent/>

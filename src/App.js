@@ -4,6 +4,7 @@ import {Menu} from "./components/Menu";
 import {renderRoutes} from "react-router-config";
 
 import {routes} from "./routes";
+import {ErrorCatcher} from "./components/ErrorCatcher";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,7 +16,10 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <Menu/>
+
+          <ErrorCatcher>
           {renderRoutes(routes)}
+          </ErrorCatcher>
           {/*<Switch>*/}
           {/*  <Route exact path="/basic" component={BasicExamplesPage} />*/}
           {/*  <Route exact path="/state" render={() => <StateExamplesPage items={this.state.items} />} />*/}
