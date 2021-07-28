@@ -1,6 +1,7 @@
 import {TodoList} from "./components/TodoList";
 import {BasicExamplesPage, FormExamplesPage, StateExamplesPage, TestPage} from "./components/others";
 import {ContextPage} from "./pages/ContextPage";
+import {ModalPage} from "./pages/ModalPage";
 
 export const routes = [
   {
@@ -26,5 +27,9 @@ export const routes = [
   {
     component: ContextPage,
     path: '/context'
+  },
+  {
+    component: ModalPage,
+    path: '/modal'
   },
 ]

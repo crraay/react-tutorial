@@ -22,6 +22,9 @@ export const Menu = ({className, activeClassName}) => {
       <li>
         <NavLink activeClassName={activeClassName} to="/context" exact >Context</NavLink>
       </li>
+      <li>
+        <NavLink activeClassName={activeClassName} to="/modal" exact >Modal</NavLink>
+      </li>
     </ul>
   );
 }

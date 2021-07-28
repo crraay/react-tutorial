@@ -4,6 +4,8 @@ import {renderRoutes} from "react-router-config";
 import {routes} from "./routes";
 import {ErrorCatcher} from "./components/ErrorCatcher";
 import styles from "./App.module.scss";
+import {ModalProvider} from "./context/modal";
+import {ModalRoot} from "./components/Modal/ModalRoot";
 
 class App extends React.Component {
   constructor(props) {
@@ -18,7 +20,10 @@ class App extends React.Component {
         </aside>
         <div className={styles.content}>
           <ErrorCatcher>
-          {renderRoutes(routes)}
+          <ModalProvider>
+            {renderRoutes(routes)}
+            <ModalRoot />
+          </ModalProvider>
           </ErrorCatcher>
           {/*<Switch>*/}
           {/*  <Route exact path="/basic" component={BasicExamplesPage} />*/}
