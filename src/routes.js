@@ -1,5 +1,6 @@
 import {TodoList} from "./components/TodoList";
 import {BasicExamplesPage, FormExamplesPage, StateExamplesPage, TestPage} from "./components/others";
+import {ContextPage} from "./pages/ContextPage";
 
 export const routes = [
   {
@@ -21,5 +22,9 @@ export const routes = [
   {
     component: TestPage,
     path: '/test/:id'
+  },
+  {
+    component: ContextPage,
+    path: '/context'
   },
 ]
