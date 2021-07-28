@@ -38,7 +38,7 @@ export class TodoList extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <h3>There are {this.state.items.length} items</h3>
         <ol>
           {this.state.items.map(i => (
@@ -53,7 +53,7 @@ export class TodoList extends React.Component {
           <button type="submit">add</button>
         </form>
 
-      </div>
+      </>
     );
   }
 }

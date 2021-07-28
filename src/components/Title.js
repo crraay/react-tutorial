@@ -19,12 +19,12 @@ export class TitleComponent extends React.Component {
   }
   render() {
     return (
-      <div>
+      <>
         <span>local value: {this.state.localTitle}, </span>
         <span>store value: {this.props.title}</span>
         <input onChange={this.onLocalTitleChange}/>
         <button onClick={this.onSubmit}>Set title</button>
-      </div>
+      </>
     );
   }
 }

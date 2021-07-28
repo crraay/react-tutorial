@@ -26,7 +26,7 @@ export class SecondDynamicTextComponent extends React.Component {
 export const BasicExamplesPage = () => {
   // throw Error("test");
   return (
-    <div>
+    <>
       <StaticTextComponent/>
 
       <DefaultContainer>
@@ -42,7 +42,7 @@ export const BasicExamplesPage = () => {
       </Container>
 
       <Container/>
-    </div>
+    </>
   )
 }
 
@@ -66,7 +66,7 @@ export const StateExamplesPage = (props) => {
 
 export const FormExamplesPage = () => {
   return (
-    <div>
+    <>
       <Container title="Name form">
         <NameForm/>
       </Container>
@@ -78,7 +78,7 @@ export const FormExamplesPage = () => {
       <Container title="Temperature converter">
         <Converter/>
       </Container>
-    </div>
+    </>
   )
 }
 
