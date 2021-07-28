@@ -1,23 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-export const Menu = () => {
+export const Menu = ({className, activeClassName}) => {
   return (
-    <ul>
+    <ul className={className}>
       <li>
-        <Link to="/basic" >Basic examples</Link>
+        <NavLink activeClassName={activeClassName} to="/basic" >Basic examples</NavLink>
       </li>
       <li>
-        <Link to={ {pathname: "/state", state: { items: [6, 7, 8] }} } >State examples</Link>
+        <NavLink activeClassName={activeClassName} to={ {pathname: "/state", state: { items: [6, 7, 8] }} } >State examples</NavLink>
       </li>
       <li>
-        <Link to="/forms" >Form examples</Link>
+        <NavLink activeClassName={activeClassName} to="/forms" >Form examples</NavLink>
       </li>
       <li>
-        <Link to="/todo" >Todo list</Link>
+        <NavLink activeClassName={activeClassName} to="/todo" >Todo list</NavLink>
       </li>
       <li>
-        <Link to="/test/5" >Test</Link>
+        <NavLink activeClassName={activeClassName} to="/test/5" >Test</NavLink>
       </li>
     </ul>
   );

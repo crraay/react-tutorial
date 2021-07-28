@@ -1,10 +1,9 @@
 import React from 'react';
-import './App.css';
 import {Menu} from "./components/Menu";
 import {renderRoutes} from "react-router-config";
-
 import {routes} from "./routes";
 import {ErrorCatcher} from "./components/ErrorCatcher";
+import styles from "./App.module.scss";
 
 class App extends React.Component {
   constructor(props) {
@@ -13,10 +12,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <Menu/>
-
+      <div className={styles.app}>
+        <aside className={styles.aside}>
+          <Menu className={styles.menu} activeClassName={styles.activeClassName}/>
+        </aside>
+        <div className={styles.content}>
           <ErrorCatcher>
           {renderRoutes(routes)}
           </ErrorCatcher>
@@ -27,7 +27,7 @@ class App extends React.Component {
           {/*  <Route exact path="/todo" component={TodoList} />*/}
           {/*  <Route exact path="/test/:id" component={TestPage} />*/}
           {/*</Switch>*/}
-        </header>
+        </div>
       </div>
     );
   }
